@@ -1,0 +1,10 @@
+@import "@/assets/scss/__variables";
+
+body {
+  font-family: "Arial", sans-serif;
+  color: white;
+  background-color: $primary-color;
+  font-weight: 500;
+  min-height: 100vh;
+  overflow-y: scroll;
+}
