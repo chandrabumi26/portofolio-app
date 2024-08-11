@@ -138,14 +138,82 @@
 
   &__cards {
     border-radius: 20px;
-    background: #80711f;
+    background: #4c6951;
     height: 500px;
     flex: 1 1 calc(100% / 3 - #{$space-xxl});
     max-width: 32%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
     padding: $space-xl;
+    gap: $space-xs;
+
+    img {
+      width: 250px;
+      height: 250px;
+      border-radius: 20px;
+    }
+  }
+
+  &__cards-title {
+    font-size: $space-xl;
+    font-weight: bold;
+  }
+
+  &__cards-small-text {
+    margin-top: $space-xs;
+    font-size: $space-md;
+    font-weight: bold;
+  }
+}
+
+.dot-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  max-width: 300px;
+  margin: 0 auto;
+
+  .dot {
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    transition: background-color 0.3s;
+
+    &.active {
+      background-color: $secondray-color;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 3px;
+      width: calc(100% - 15px);
+      background-color: white;
+      z-index: -1;
+    }
+
+    &:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 3px;
+      width: calc(100% - 15px);
+      background-color: white;
+      z-index: -1;
+    }
+
+    &.active + .dot::before {
+      background-color: $secondray-color;
+    }
   }
 }

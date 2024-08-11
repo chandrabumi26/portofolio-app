@@ -20,12 +20,15 @@
           <span class="about__profile-title">Rock.</span>
         </div>
         <span class="about__text-aboutme">
-          Hello! I’m Chandra a self-taught & award-winning Digital Designer &
-          Developer with over fifteen years of work experience. I started in my
-          children’s room and got pro at renowned digital agencies nexum AG and
-          Fork Unstable Media. Now I’m based in Salzburg Linz, Austria, working
-          for Red Bull | fredmansky Dynatrace and enjoying life in the
-          countryside. Find out more about me.
+          I find my pleasure in making an application product, especially the
+          process of development and tech stacks – which i think it's alluring.
+          It should be mentioned that my tech stacks look like this at the
+          moment : HTML, SASS/SCSS, VUE JS, TypeScript. On top of that i believe
+          that developent process is crucial because it allows me to improve my
+          skills and stay up-to-date with the latest coding methods and
+          technologies. Outside of work, I enjoy spending my time nurturing
+          creativity and patience by assembling Gunpla models and playing
+          classical music on the keyboard
         </span>
       </div>
     </div>
@@ -59,10 +62,28 @@
       <span class="about__page-title">Skills</span>
     </div>
     <div class="about__card-container">
-      <div class="about__cards"><span>a</span><span>b</span></div>
-      <div class="about__cards">a</div>
-      <div class="about__cards">a</div>
-      <div class="about__cards">a</div>
+      <div class="about__cards" v-for="(g, index) in skillsItems" :key="index">
+        <span class="about__cards-title"> {{ g.title }} </span>
+        <img :src="g.src" :class="returnBg(g.title)" />
+        <span class="about__cards-small-text">Level</span>
+        <div class="dot-bar">
+          <div
+            v-for="e in 5"
+            :key="e"
+            class="dot"
+            :class="setActive(e, g.level)"
+          ></div>
+        </div>
+        <span class="about__cards-small-text">Frequently Used</span>
+        <div class="dot-bar">
+          <div
+            v-for="e in 5"
+            :key="e"
+            class="dot"
+            :class="setActive(e, g.frequently)"
+          ></div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -71,8 +92,88 @@
 import { onMounted, ref } from "vue";
 import LoadingDots from "@/components/DotsLoading.vue";
 import profileImg from "@/assets/img/profile.png";
+import VueLogo from "@/assets/img/logos/vue.png";
+import TsLogo from "@/assets/img/logos/typescript.png";
+import JsLogo from "@/assets/img/logos/javascript.png";
+import HtmlLogo from "@/assets/img/logos/html.png";
+import CssLogo from "@/assets/img/logos/css.png";
+import SassLogo from "@/assets/img/logos/sass.png";
+import jQueryLogo from "@/assets/img/logos/jquery.svg";
+import LaravelLogo from "@/assets/img/logos/laravel.png";
+import PhpLogo from "@/assets/img/logos/php.png";
+import MySqlLogo from "@/assets/img/logos/mysql.svg";
+import JavaLogo from "@/assets/img/logos/java.png";
 
 const isLoading = ref(true);
+
+const skillsItems = ref([
+  {
+    title: "Vue JS",
+    level: 4,
+    frequently: 5,
+    src: VueLogo,
+  },
+  {
+    title: "TypeScript",
+    level: 4,
+    frequently: 5,
+    src: TsLogo,
+  },
+  {
+    title: "JavaScript",
+    level: 4,
+    frequently: 5,
+    src: JsLogo,
+  },
+  {
+    title: "HTML",
+    level: 4,
+    frequently: 5,
+    src: HtmlLogo,
+  },
+  {
+    title: "CSS",
+    level: 4,
+    frequently: 3,
+    src: CssLogo,
+  },
+  {
+    title: "SASS / SCSS",
+    level: 4,
+    frequently: 5,
+    src: SassLogo,
+  },
+  {
+    title: "jQuery",
+    level: 3,
+    frequently: 2,
+    src: jQueryLogo,
+  },
+  {
+    title: "Laravel",
+    level: 2,
+    frequently: 2,
+    src: LaravelLogo,
+  },
+  {
+    title: "PHP",
+    level: 2,
+    frequently: 2,
+    src: PhpLogo,
+  },
+  {
+    title: "MySql",
+    level: 2,
+    frequently: 2,
+    src: MySqlLogo,
+  },
+  {
+    title: "Java",
+    level: 2,
+    frequently: 1,
+    src: JavaLogo,
+  },
+]);
 
 const workItems = ref([
   {
@@ -100,6 +201,15 @@ const workItems = ref([
     url: "http://dungdung.com",
   },
 ]);
+
+const setActive = (e: number, g: number) => {
+  if (e <= g) return "active";
+};
+
+const returnBg = (e: string) => {
+  if (e === "jQuery" || e === "Laravel" || e === "MySql" || e === "Java")
+    return "bg-white";
+};
 
 onMounted(() => {
   setTimeout(() => {

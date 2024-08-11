@@ -13,14 +13,20 @@
     </div>
     <div class="content__about">
       <span
-        >Hello! I’m <span class="content__about--bold">DUNG DUNG</span> a
-        self-taught & award-winning Digital Designer & Developer with over
-        fifteen years of work experience. I started in my children’s room and
-        got pro at renowned digital agencies nexum AG and Fork Unstable Media.
-        Now I’m based in Salzburg Linz, Austria, working for Red Bull |
-        fredmansky Dynatrace and enjoying life in the countryside. Find out more
-        about me.</span
-      >
+        >Hi, I am <span class="content__about--bold">Chandra!</span> Currently
+        focusing on
+        <span class="content__about--bold">Front-End Developer</span> field with
+        over 3 years of experience. I began seriously pursuing a career as a
+        Front-End in <span class="content__about--bold">2021</span>, by starting
+        with several freelance projects then committing to a full-time position
+        soon after that. Also, I graduated from
+        <span class="content__about--bold">Brawijaya University</span> in the
+        same year. For now, I am based in
+        <span class="content__about--bold">South Tangerang</span>,
+        <span class="content__about--bold">Indonesia</span>, and working for
+        <span class="content__about--bold">PT Bukit Makmur Mandiri Utama</span>
+        as a <span class="content__about--bold">Front-End Developer</span>.
+      </span>
     </div>
   </div>
 </template>
