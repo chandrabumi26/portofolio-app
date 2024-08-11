@@ -1,20 +1,6 @@
 <template>
-  <div class="landing">
-    <div class="landing__header">
-      <div class="landing__header-group">
-        <div class="landing__box">
-          <span>DC</span>
-        </div>
-        <span>Dorojatun Chandrabumi</span>
-      </div>
-      <div class="landing__header-group">
-        <span>About</span>
-        <span>Work</span>
-      </div>
-    </div>
-    <LoadingDots v-if="isLoading"></LoadingDots>
-    <Content v-if="!isLoading"></Content>
-  </div>
+  <LoadingDots v-if="isLoading"></LoadingDots>
+  <Content v-if="!isLoading"></Content>
 </template>
 
 <script lang="ts" setup>

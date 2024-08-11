@@ -5,7 +5,7 @@
   padding: $space-xl;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 
   &__header {
     font-weight: bold;
@@ -53,6 +53,7 @@
     font-size: 152px;
     margin-left: 140px;
     text-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3);
+    gap: $space-lg;
 
     span {
       display: inline-block;
