@@ -9,7 +9,7 @@
       </div>
       <div class="landing__header-group">
         <span @click="goRoute('about')">About</span>
-        <span>Work</span>
+        <span @click="goRoute('work')">Work</span>
       </div>
     </div>
     <router-view></router-view>
