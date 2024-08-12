@@ -44,7 +44,7 @@
         v-for="(e, index) in workItems"
         :key="index"
       >
-        <div class="d-flex flex-column">
+        <div class="about__place-container">
           <span class="about__items-text-bold--place">{{ e.place }}</span>
           <span class="about__items-text-small--period">{{ e.period }}</span>
         </div>
@@ -177,28 +177,28 @@ const skillsItems = ref([
 
 const workItems = ref([
   {
-    place: "PT Angkasa Pura II",
-    period: "Jul 2019 - Sept 2019",
-    position: "Full Stack Web Developer Intern",
-    url: "http://dungdung.com",
+    place: "PT Bukit Makmur Mandiri Utama",
+    period: "Okt 2022 - Present",
+    position: "Front-End Developer",
+    url: "-",
+  },
+  {
+    place: "Kamoro Maxima Integra",
+    period: "Okt 2022 - Present",
+    position: "Front-End Developer Support",
+    url: "-",
+  },
+  {
+    place: "AJITA",
+    period: "Nov 2021 - Okt 2022",
+    position: "Front-End Developer",
+    url: "-",
   },
   {
     place: "PT Angkasa Pura II",
     period: "Jul 2019 - Sept 2019",
     position: "Full Stack Web Developer Intern",
-    url: "http://dungdung.com",
-  },
-  {
-    place: "PT Angkasa Pura II",
-    period: "Jul 2019 - Sept 2019",
-    position: "Full Stack Web Developer Intern",
-    url: "http://dungdung.com",
-  },
-  {
-    place: "PT Angkasa Pura II",
-    period: "Jul 2019 - Sept 2019",
-    position: "Full Stack Web Developer Intern",
-    url: "http://dungdung.com",
+    url: "-",
   },
 ]);
 
