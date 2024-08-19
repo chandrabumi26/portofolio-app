@@ -41,10 +41,13 @@
 
 <script lang="ts" setup>
 import LoadingDots from "@/components/DotsLoading.vue";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, onBeforeMount } from "vue";
 import BspaceHome from "@/assets/img/bspace-home.png";
+import { useStore } from "vuex";
 
 const isLoading = ref(true);
+
+const store = useStore();
 
 const projectsArr = ref([
   {
@@ -81,6 +84,10 @@ onMounted(() => {
   setTimeout(() => {
     isLoading.value = false;
   }, 1000);
+});
+
+onBeforeMount(async () => {
+  await store.dispatch("WorkProjectModule/CALL_WORK_LIST");
 });
 </script>
 

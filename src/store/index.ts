@@ -1,9 +1,10 @@
 import { createStore } from "vuex";
+import WorkProjectModule from "./modules/WorkProjectModule"; // Adjust the import path accordingly
 
-export default createStore({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+const store = createStore({
+  modules: {
+    WorkProjectModule,
+  },
 });
+
+export default store;
