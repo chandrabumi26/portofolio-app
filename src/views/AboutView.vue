@@ -55,36 +55,6 @@
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-center w-100">
-      <div class="about__divider-horizontal"></div>
-    </div>
-    <div class="about__page-title-container">
-      <span class="about__page-title">Skills</span>
-    </div>
-    <div class="about__card-container">
-      <div class="about__cards" v-for="(g, index) in skillsItems" :key="index">
-        <span class="about__cards-title"> {{ g.title }} </span>
-        <img :src="g.src" :class="returnBg(g.title)" />
-        <span class="about__cards-small-text">Level</span>
-        <div class="dot-bar">
-          <div
-            v-for="e in 5"
-            :key="e"
-            class="dot"
-            :class="setActive(e, g.level)"
-          ></div>
-        </div>
-        <span class="about__cards-small-text">Frequently Used</span>
-        <div class="dot-bar">
-          <div
-            v-for="e in 5"
-            :key="e"
-            class="dot"
-            :class="setActive(e, g.frequently)"
-          ></div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
