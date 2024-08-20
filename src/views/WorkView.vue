@@ -8,7 +8,7 @@
 
     <div
       class="d-flex flex-column"
-      v-for="(e, index) in projectsArr"
+      v-for="(e, index) in worklistArr"
       :key="index"
     >
       <div class="d-flex justify-content-center w-100">
@@ -16,20 +16,28 @@
       </div>
 
       <div class="about__projects-container" :class="returnReverse(index)">
-        <div class="about__projects-img-container">
+        <div
+          class="about__projects-img-container"
+          v-if="e.project_name !== 'Kantin Sehat'"
+        >
           <div class="about__projects-img-dots-container">
             <div class="about__projects-img-dots--green"></div>
             <div class="about__projects-img-dots--red"></div>
             <div class="about__projects-img-dots--yellow"></div>
           </div>
-          <img :src="e.src" />
+          <img :src="`data:image/png;base64,${e.project_pictures}`" />
         </div>
+        <img
+          v-else
+          :src="`data:image/png;base64,${e.project_pictures}`"
+          width="600"
+        />
 
         <div class="about__projects-descriptions-container">
           <div class="d-flex flex-column">
-            <span class="about__projects-title">{{ e.title }}</span>
+            <span class="about__projects-title">{{ e.project_name }}</span>
             <span class="about__projects-description">
-              {{ e.description }}
+              {{ e.project_description }}
             </span>
           </div>
           <button class="about__projects-button">VIEW PROJECT</button>
@@ -41,40 +49,16 @@
 
 <script lang="ts" setup>
 import LoadingDots from "@/components/DotsLoading.vue";
-import { onMounted, ref, onBeforeMount } from "vue";
-import BspaceHome from "@/assets/img/bspace-home.png";
+import { onMounted, ref, onBeforeMount, computed } from "vue";
 import { useStore } from "vuex";
 
 const isLoading = ref(true);
 
 const store = useStore();
 
-const projectsArr = ref([
-  {
-    src: BspaceHome,
-    title: "Bspace 2",
-    description:
-      "Bspace 2 is a enhancement project from Bspace 1 for a purpose of migration technologies from Vanilla Javascript, into Vue JS. In Bspace2, the base of tech stacks is Vue JS Version 3, TypeSript, and SASS.",
-  },
-  {
-    src: BspaceHome,
-    title: "Bspace 2",
-    description:
-      "Bspace 2 is a enhancement project from Bspace 1 for a purpose of migration technologies from Vanilla Javascript, into Vue JS. In Bspace2, the base of tech stacks is Vue JS Version 3, TypeSript, and SASS.",
-  },
-  {
-    src: BspaceHome,
-    title: "Bspace 2",
-    description:
-      "Bspace 2 is a enhancement project from Bspace 1 for a purpose of migration technologies from Vanilla Javascript, into Vue JS. In Bspace2, the base of tech stacks is Vue JS Version 3, TypeSript, and SASS.",
-  },
-  {
-    src: BspaceHome,
-    title: "Bspace 2",
-    description:
-      "Bspace 2 is a enhancement project from Bspace 1 for a purpose of migration technologies from Vanilla Javascript, into Vue JS. In Bspace2, the base of tech stacks is Vue JS Version 3, TypeSript, and SASS.",
-  },
-]);
+const worklistArr = computed(() => {
+  return store.getters["WorkProjectModule/GET_WORK_LIST"];
+});
 
 const returnReverse = (e: number) => {
   if (e % 2 !== 0) return "flex-row-reverse";
