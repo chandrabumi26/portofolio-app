@@ -62,88 +62,8 @@
 import { onMounted, ref } from "vue";
 import LoadingDots from "@/components/DotsLoading.vue";
 import profileImg from "@/assets/img/profile.png";
-import VueLogo from "@/assets/img/logos/vue.png";
-import TsLogo from "@/assets/img/logos/typescript.png";
-import JsLogo from "@/assets/img/logos/javascript.png";
-import HtmlLogo from "@/assets/img/logos/html.png";
-import CssLogo from "@/assets/img/logos/css.png";
-import SassLogo from "@/assets/img/logos/sass.png";
-import jQueryLogo from "@/assets/img/logos/jquery.svg";
-import LaravelLogo from "@/assets/img/logos/laravel.png";
-import PhpLogo from "@/assets/img/logos/php.png";
-import MySqlLogo from "@/assets/img/logos/mysql.svg";
-import JavaLogo from "@/assets/img/logos/java.png";
 
 const isLoading = ref(true);
-
-const skillsItems = ref([
-  {
-    title: "Vue JS",
-    level: 4,
-    frequently: 5,
-    src: VueLogo,
-  },
-  {
-    title: "TypeScript",
-    level: 4,
-    frequently: 5,
-    src: TsLogo,
-  },
-  {
-    title: "JavaScript",
-    level: 4,
-    frequently: 5,
-    src: JsLogo,
-  },
-  {
-    title: "HTML",
-    level: 4,
-    frequently: 5,
-    src: HtmlLogo,
-  },
-  {
-    title: "CSS",
-    level: 4,
-    frequently: 3,
-    src: CssLogo,
-  },
-  {
-    title: "SASS / SCSS",
-    level: 4,
-    frequently: 5,
-    src: SassLogo,
-  },
-  {
-    title: "jQuery",
-    level: 3,
-    frequently: 2,
-    src: jQueryLogo,
-  },
-  {
-    title: "Laravel",
-    level: 2,
-    frequently: 2,
-    src: LaravelLogo,
-  },
-  {
-    title: "PHP",
-    level: 2,
-    frequently: 2,
-    src: PhpLogo,
-  },
-  {
-    title: "MySql",
-    level: 2,
-    frequently: 2,
-    src: MySqlLogo,
-  },
-  {
-    title: "Java",
-    level: 2,
-    frequently: 1,
-    src: JavaLogo,
-  },
-]);
 
 const workItems = ref([
   {

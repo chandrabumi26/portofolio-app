@@ -40,7 +40,12 @@
               {{ e.project_description }}
             </span>
           </div>
-          <button class="about__projects-button">VIEW PROJECT</button>
+          <button
+            class="about__projects-button"
+            @click="goRoute(e.project_name)"
+          >
+            VIEW PROJECT
+          </button>
         </div>
       </div>
     </div>
@@ -51,10 +56,13 @@
 import LoadingDots from "@/components/DotsLoading.vue";
 import { onMounted, ref, onBeforeMount, computed } from "vue";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
 const isLoading = ref(true);
 
 const store = useStore();
+
+const router = useRouter();
 
 const worklistArr = computed(() => {
   return store.getters["WorkProjectModule/GET_WORK_LIST"];
@@ -62,6 +70,26 @@ const worklistArr = computed(() => {
 
 const returnReverse = (e: number) => {
   if (e % 2 !== 0) return "flex-row-reverse";
+};
+
+const goRoute = (e: string) => {
+  switch (e) {
+    case "Bspace 2.0":
+      router.push({ name: "workdetail", params: { name: "bspace" } });
+      break;
+    case "MLD SPOT":
+      router.push({ name: "workdetail", params: { name: "mld" } });
+      break;
+    case "INLA":
+      router.push({ name: "workdetail", params: { name: "inla" } });
+      break;
+    case "RETINAD":
+      router.push({ name: "workdetail", params: { name: "retinad" } });
+      break;
+    case "Kantin Sehat":
+      router.push({ name: "workdetail", params: { name: "kantinsehat" } });
+      break;
+  }
 };
 
 onMounted(() => {

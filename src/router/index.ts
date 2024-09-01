@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Landing from "@/views/LandingView.vue";
 import About from "@/views/AboutView.vue";
 import Work from "@/views/WorkView.vue";
+import WorkDetail from "@/views/WorkDetailView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -18,6 +19,16 @@ const routes: Array<RouteRecordRaw> = [
     path: "/work",
     name: "work",
     component: Work,
+  },
+  {
+    path: "/work/detail/:name",
+    name: "workdetail",
+    component: WorkDetail,
+  },
+  {
+    path: "/work/detail/bspace/:name",
+    name: "bspacedetail",
+    component: WorkDetail,
   },
 ];
 

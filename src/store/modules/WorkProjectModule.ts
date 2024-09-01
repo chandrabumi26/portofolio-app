@@ -3,6 +3,7 @@ import axios from "@/axios";
 
 const state = () => ({
   workProjectList: [],
+  workProjectDetail: {},
 });
 
 type State = ReturnType<typeof state>;
@@ -10,6 +11,9 @@ type State = ReturnType<typeof state>;
 const getters = {
   ["GET_WORK_LIST"](state: State) {
     return state.workProjectList;
+  },
+  ["GET_WORK_DETAIL"](state: State) {
+    return state.workProjectDetail;
   },
 };
 
@@ -22,12 +26,25 @@ const actions = {
       }
     });
   },
+  async ["CALL_WORK_PROJECT_DETAIL"](
+    context: ActionContext<State, unknown>,
+    id: string
+  ) {
+    await axios.get("/workprojects/detail/" + id).then((res: any) => {
+      if (!res.data.isError) {
+        const response = res.data.data;
+        context.commit("SET_WORK_DETAIL", response);
+      }
+    });
+  },
 };
 
 const mutations = {
   ["SET_WORK_LIST"](state: State, params: any) {
-    console.log(params);
     state.workProjectList = params;
+  },
+  ["SET_WORK_DETAIL"](state: State, params: any) {
+    state.workProjectDetail = params;
   },
 };
 
