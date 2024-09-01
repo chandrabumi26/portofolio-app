@@ -14,12 +14,14 @@
 
     &--large {
       @extend .detail__title;
+      text-align: center;
       font-size: 144px;
       width: 1000px;
     }
 
     &--small {
       @extend .detail__title;
+      text-align: center;
       font-size: 72px;
     }
   }
@@ -138,6 +140,7 @@
     line-height: 30px;
     text-align: justify;
     width: 1300px;
+    text-align: center;
   }
 
   &__projects-button {

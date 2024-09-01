@@ -2,7 +2,13 @@
   <LoadingDots v-if="isLoading"></LoadingDots>
   <div v-else class="detail">
     <div class="detail__title-container">
-      <span class="detail__title--large">{{ workDetail.project_name }}</span>
+      <span
+        :class="{
+          'detail__title--large': route.params.name !== 'inla',
+          'detail__title--small': route.params.name === 'inla',
+        }"
+        >{{ workDetail.project_name }}</span
+      >
       <div class="detail__tech-stacks-container">
         <span
           v-for="(e, index) in workDetail.tech_stacks"
@@ -15,7 +21,7 @@
     <div class="detail__img-container">
       <img
         :src="`data:image/png;base64,${workDetail.project_base_picture}`"
-        width="1200"
+        :width="route.params.name !== 'kantinsehat' ? 1200 : 600"
       />
     </div>
     <div class="detail__description-container">
@@ -34,7 +40,10 @@
       v-for="(e, index) in workDetail.project_detailed"
       :key="index"
     >
-      <div class="detail__projects-img-container">
+      <div
+        class="detail__projects-img-container"
+        v-if="route.params.name !== 'kantinsehat'"
+      >
         <div class="detail__projects-img-dots-container">
           <div class="detail__projects-img-dots--green"></div>
           <div class="detail__projects-img-dots--red"></div>
@@ -42,6 +51,11 @@
         </div>
         <img :src="`data:image/png;base64,${e.project_features_picture}`" />
       </div>
+      <img
+        v-else
+        :src="`data:image/png;base64,${e.project_features_picture}`"
+        width="600"
+      />
 
       <div class="detail__projects-descriptions-container">
         <span class="detail__projects-title">{{
@@ -112,6 +126,21 @@ onBeforeMount(async () => {
       break;
     case "mld":
       id = "20";
+      await store.dispatch("WorkProjectModule/CALL_WORK_PROJECT_DETAIL", id);
+      isLoading.value = false;
+      break;
+    case "inla":
+      id = "26";
+      await store.dispatch("WorkProjectModule/CALL_WORK_PROJECT_DETAIL", id);
+      isLoading.value = false;
+      break;
+    case "retinad":
+      id = "27";
+      await store.dispatch("WorkProjectModule/CALL_WORK_PROJECT_DETAIL", id);
+      isLoading.value = false;
+      break;
+    case "kantinsehat":
+      id = "28";
       await store.dispatch("WorkProjectModule/CALL_WORK_PROJECT_DETAIL", id);
       isLoading.value = false;
       break;
